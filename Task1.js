@@ -10,17 +10,20 @@
 
 //Будем понимать что нулевой элемент это 0
 
+let randomArray = [4,2,6,7,8,2,null,7,0,9,5,27,0];
 
-function countEvenOddZero() {
-    let randomArray = [4,2,6,7,8,2,null,7,0,9,5,27,0];
-    console.log('Массив ' + randomArray);
-    console.log('Массив чётных элементов = ' + randomArray.filter(element => element ? element % 2 === 0 : false));
-    console.log('Количество чётных = ' + randomArray.filter(element => element ? element % 2 === 0 : false).length);
-    console.log('Массив нечётных элементов = ' + randomArray.filter(element => element ? element % 2 !== 0 : false));
-    console.log('Количество нечётных = ' + randomArray.filter(element => element ? element % 2 !== 0 : false).length);
-    console.log('Массив нулевых элементов = ' + randomArray.filter(element => !element ? element === 0 : false));
-    console.log('Количество нулевых = ' + randomArray.filter(element => !element ? element === 0 : false).length);
+function countEvenOddZero(array) {
+    console.log('Массив ' + array);
+    console.log('Массив чётных элементов = ' + array.filter(element => element ? element % 2 === 0 : false));
+    console.log('Количество чётных = ' + array.filter(element => element ? element % 2 === 0 : false).length);
+    console.log('Массив нечётных элементов = ' + array.filter(element => element ? element % 2 !== 0 : false));
+    console.log('Количество нечётных = ' + array.filter(element => element ? element % 2 !== 0 : false).length);
+    console.log('Массив нулевых элементов = ' + array.filter(element => !element ? element === 0 : false));
+    console.log('Количество нулевых = ' + array.filter(element => !element ? element === 0 : false).length);
     
 }
 
-countEvenOddZero();
+countEvenOddZero(randomArray);
+
+// Тут остались те ошибки, что я исправляла в соответствующем задании 10 модуля. Попробуйте их исправить самостоятельно на основе того, что я исправила в том задании
+// Кроме того, сама функция оформлена не совсем верно. Массив должен передаваться в функцию в качестве аргумента, чтобы можно было проанализировать различные массивы, не меняя кода функции. В текущем виде функция не универсальна. 
