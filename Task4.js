@@ -9,19 +9,24 @@ start = Number(prompt("Введите первое число"));
 end = Number(prompt("До какого числа посчитать?"));
 
 
-function getNextNumber(start, end) {
-    index = start;
+function printNumbers(start, end) {
+    let index = start; // не забывайте использовать ключевые слова при объявлении переменных
     function getNextNumberInner() {
         if (index <= end) {
-            console.log(index);    
+            console.log(index);
+            index++;    
+        } else {
+            clearInterval(intervalId);
         }
-        index++;
     }
-    return getNextNumberInner;
+    const intervalId = setInterval(getNextNumberInner,1000);
 }
 
-const func = getNextNumber(start,end);
-const intervalId = setInterval(func,1000);
+printNumbers(start, end);
 
 }    
 
+// В задании есть пара недочетов
+// 1. Интервал нужно обязательно очистить (clearInterval) после вывода последнего числа. Потому что иначе функция, переданная в качестве коллбэка, продолжает выполняться бесконечно и "съедает" ресурсы программы
+// 2. Запуск интервала должен находиться внутри основной функции, чтобы её можно было переиспользовать
+// 3. Немного усложнили с вложенными функциями, в этом задании нет необходимости использовать функцию высшего порядка. Исправила на более оптимальный вариант

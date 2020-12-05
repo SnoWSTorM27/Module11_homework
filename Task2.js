@@ -4,8 +4,7 @@
 
 Здесь вам пригодятся знания из предыдущего модуля — циклы и условные операторы */
 
-function isPrimeNumber(){
-    let number = Number(prompt('Введите число не больше 1000'));
+function isPrimeNumber(number){
     if ((number === 1) || (number === 0)) {
         console.log(`Число ${number} - не простое`)
         return 
@@ -16,7 +15,7 @@ function isPrimeNumber(){
         console.log('Нужно ввести число не больше 1000!')
         return
     } else {
-        var message = `Число ${number} - простое`; 
+        let message = `Число ${number} - простое`; // лучше не использовать ключевое слово var для объявления переменных, это устаревший синтаксис. Старайтесь использовать более современные let или const
         for (let index = 2; index <= Math.sqrt(number); index++) {
             if (number % index === 0) {
                 message = `Число ${number} - не простое`
@@ -26,3 +25,8 @@ function isPrimeNumber(){
     }    
     console.log(message);     
 }
+
+let num = Number(prompt('Введите число не больше 1000'));
+isPrimeNumber(num);
+
+// Задание засчитала, т.к. используется prompt и можно проверить разные числа, но лучше всё-таки передавать число в качестве аргумента, чтобы иметь бОльшую свободу в использовании функции - проверять какие угодно числа, не только из prompt, но и например из инпутов на странице, значения, полученные с сервера и т.д.
